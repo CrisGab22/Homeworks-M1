@@ -54,25 +54,17 @@ function cacheFunction(cb) {
   */
 
 
-var cache = [];
-  return function(cb){
-    if(cache[cb] == cb){
-      return cache[cb] 
+var cache = {};
+  return function(arg){
+    if(cache.hasOwnProperty([arg])){
+      return cache[arg]
     }
     else{
-      cache[cb] = cb* 2
-      return cache[cb]
-    }   
+      cache[arg] = cb(arg)
+      return cache[arg]
+    }
   }
 }
-
-// 	var cache = {};
-// 	return function(x) {
-// 		if (cache.hasOwnProperty(x)) return cache[x];
-// 		cache[x] = cb(x);
-// 		return cache[x];
-// 	};
-// }
 
 // Bind
 
