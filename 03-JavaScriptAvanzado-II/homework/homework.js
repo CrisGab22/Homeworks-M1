@@ -19,10 +19,11 @@ function counter() {
   otroContador()      // 2
   otroContador()      // 3
    */
-  var cont = 0 ;
-  return function() {
-    cont += 1
-    return cont
+
+   var contador = 0
+   return function(){
+    contador += 1
+    return contador 
    }
 }
 
@@ -54,16 +55,15 @@ function cacheFunction(cb) {
   */
 
 
-var cache = {};
-  return function(arg){
-    if(cache.hasOwnProperty([arg])){
-      return cache[arg]
-    }
-    else{
-      cache[arg] = cb(arg)
-      return cache[arg]
-    }
+var cache={}
+return function(num){
+  if(cache.hasOwnProperty([num])){
+    return cache[num ]
   }
+  else
+    cache[num] = cb(num)
+    return cache[num]
+}
 }
 
 // Bind
@@ -111,7 +111,7 @@ function crearCadena(delimitadorIzquierda, delimitadorDerecha, cadena) {
 let textoAsteriscos;
 let textoGuiones;
 let textoUnderscore;
-textoAsteriscos= crearCadena.bind(this, "*", "*") 
+textoAsteriscos= crearCadena.bind( this, "*","*") 
 textoGuiones= crearCadena.bind(this, "-", "-") 
 textoUnderscore= crearCadena.bind(this, "_", "_") 
 
