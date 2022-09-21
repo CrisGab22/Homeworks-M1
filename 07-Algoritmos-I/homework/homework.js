@@ -36,38 +36,29 @@ function bubbleSort(array) {
 }
 
 
-function mergeSort(array) {
-  // Implementar el método conocido como mergeSort para ordenar de menor a mayor
-  // el array recibido como parámetro
+function insertionSort(array) {
+  // Implementar el método conocido como insertionSort para ordenar de menor a mayor
+  // el array recibido como parámetro utilizando arreglos
   // Devolver el array ordenado resultante
   // Tu código:
-let res 
-let control = 0
-if(array.length==0 ||array.length==1) return array
-let primeraParte = array.slice(0,Math.floor(array.length / 2))
-let segundaParte = array.slice(Math.floor(array.length / 2))  
-if(control!=1){
-  let a = mergeSort(primeraParte).concat(mergeSort(segundaParte))
-  for(let i=1;i<a.length;i++){
-  if(Math.min(array) == array[0]&&Math.min(array) == array[array.length-1]){
-    control++
-  }
-  else{
+    
+let acum=[]
+acum.push(array[0])
 
-    for(let n=0;n<a.length-1;n++){
-      if(array[n]>array[n+1]){
-        let max = array[n]
-        array[n] = array[n+1]
-        array[n+1] = max 
+for(let i=1; i<array.length;i++){
+    
+    acum.unshift(array[i])
+
+      for(let n = 0;n<acum.length; n++){
+      
+        if(acum[n]>acum[n+1]){
+          let max = acum[n]
+          acum[n] = acum[n+1]
+          acum[n+1] = max
       }
-    }
   }
-  control++
-  res = a
 }
-return array
-}
-return res
+return acum
 }
 
 
